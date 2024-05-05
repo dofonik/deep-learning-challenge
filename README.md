@@ -1,10 +1,10 @@
 # deep-learning-challenge
 Module 21 Challenge - UWA Data Analytics Bootcamp
 
-#OVERVIEW
+## OVERVIEW
 The purpose of the analysis contained within this repository is to create a binary classification machine learning model that can predict if organisations funded by Alphabet Soup are successful or not. The prediction is based on features provided in a CSV file.
 
-#RESULTS
+## RESULTS
 
 Target variable of the model:
  - The IS_SUCCESSFUL column was the target variable for the model. It is a binary variable with 1 indicating success, and 0 indicating failure.
@@ -14,7 +14,7 @@ Variables that were removed from the input data:
  - The EIN and NAME variables were available in the data but were dropped as features for the model due to the fact that they were for company identification in nature and did not provide any consquential information on company success.
  - Note that there was an attempt to include NAME in the model as an experiment to increase the  accuracy of the model - however this caused the dummies dataframe to inflate to over 19,000  columns and the code would not run successfully.
 
-##Original
+### Original
 hidden_nodes_layer1 = 50
 hidden_nodes_layer2 = 25
 
@@ -41,7 +41,7 @@ Loss: 0.5602652430534363, Accuracy: 0.7302623987197876
  - Overall this model had an accuracy of 73.03% with a loss of 0.56.
  - 50 epochs was chosen as a general starting number that would be further honed.
 
-##Optimisation 1
+### Optimisation 1
 hidden_nodes_layer1 = 50
 hidden_nodes_layer2 = 25
 
@@ -63,7 +63,7 @@ Loss: 0.5505353808403015, Accuracy: 0.7335277199745178
  - With the original model having 50 epochs, I ran the code with 50, 70 and 80 epochs to gauge an estimate of an optimal epoch number.
  - The best performer of the 3 runs was 70 epochs, with an accuracy of 73.35% and a marginal loss improvement.
 
-##Optimisation 2
+### Optimisation 2
 hidden_nodes_layer1 = 60
 hidden_nodes_layer2 = 35
 
@@ -85,7 +85,7 @@ Loss: 0.5494025945663452, Accuracy: 0.7402915358543396
  - First the node count was reduced, however this instantly decreased model accuracy consistently.
  - Increasing the node count by a small amount created the most improvement with 60 and 35 nodes for the first and second hidden layer respectively increasing model accuracy to 74.03% with a marginal loss improvement.
 
-##Optimisation 3
+### Optimisation 3
 hidden_nodes_layer1 = 60
 hidden_nodes_layer2 = 35
 hidden_nodes_layer3 = 15
@@ -115,7 +115,7 @@ Loss: 0.5488268136978149, Accuracy: 0.7365597486495972
  - Considering the preceding layer had 35 nodes, 17 nodes was originally chosen as a middle ground. Tuning this down to 15 nodes created the highest accuracy for this model iteration.
  - Unfortunately adding a new layer struggled to increase accuracy in any of its experimental runs. It had a final accuracy of 73.66% but had a marginal improvement in loss.
 
-#SUMMARY
+## SUMMARY
 Overall the best iteration of the model was optimisation 2 which contained 2 hidden layers with ReLU activation at 60 and 35 nodes and 70 epochs. 
 
 A random forest model would make a good alternative in this context as it is adept at capturing non-linear relationships which this data appears to contain a lot of. Considering that each decision tree in this type of model is trained independently on random subsets of data and features, it makes it resistant to overfitting which could vastly improve accuracy on this data.
